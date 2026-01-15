@@ -34,7 +34,22 @@ class CarouselPreviewSection extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    child: Image.asset(imgPath, fit: BoxFit.cover),
+                    child: Image.asset(
+                      imgPath,
+                      fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) {
+                        return Container(
+                          color: Colors.grey.shade300,
+                          child: Center(
+                            child: Icon(
+                              Icons.broken_image,
+                              size: 48,
+                              color: Colors.grey.shade600,
+                            ),
+                          ),
+                        );
+                      },
+                    ),
                   ),
                 );
               },

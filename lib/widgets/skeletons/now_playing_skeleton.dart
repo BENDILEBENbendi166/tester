@@ -25,7 +25,7 @@ class NowPlayingSkeleton extends StatelessWidget {
                     width: 60,
                     height: 60,
                     decoration: BoxDecoration(
-                      color: Colors.grey[300],
+                      color: Colors.grey.shade300,
                       borderRadius: BorderRadius.circular(12),
                     ),
                   ),
@@ -38,7 +38,7 @@ class NowPlayingSkeleton extends StatelessWidget {
                           width: double.infinity,
                           height: 16,
                           decoration: BoxDecoration(
-                            color: Colors.grey[300],
+                            color: Colors.grey.shade300,
                             borderRadius: BorderRadius.circular(4),
                           ),
                         ),
@@ -47,7 +47,7 @@ class NowPlayingSkeleton extends StatelessWidget {
                           width: 150,
                           height: 12,
                           decoration: BoxDecoration(
-                            color: Colors.grey[300],
+                            color: Colors.grey.shade300,
                             borderRadius: BorderRadius.circular(4),
                           ),
                         ),
@@ -57,7 +57,7 @@ class NowPlayingSkeleton extends StatelessWidget {
                   const SizedBox(width: 8),
                   Icon(
                     Icons.chevron_right,
-                    color: Colors.grey[300],
+                    color: Colors.grey.shade300,
                   ),
                 ],
               ),

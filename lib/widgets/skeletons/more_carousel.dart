@@ -29,7 +29,7 @@ class MoreDestinationSkeleton extends StatelessWidget {
               Expanded(
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Colors.grey[300],
+                    color: Colors.grey.shade300,
                     borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(16),
                       topRight: Radius.circular(16),
@@ -46,7 +46,7 @@ class MoreDestinationSkeleton extends StatelessWidget {
                       width: double.infinity,
                       height: 16,
                       decoration: BoxDecoration(
-                        color: Colors.grey[300],
+                        color: Colors.grey.shade300,
                         borderRadius: BorderRadius.circular(4),
                       ),
                     ),
@@ -55,7 +55,7 @@ class MoreDestinationSkeleton extends StatelessWidget {
                       width: 80,
                       height: 12,
                       decoration: BoxDecoration(
-                        color: Colors.grey[300],
+                        color: Colors.grey.shade300,
                         borderRadius: BorderRadius.circular(4),
                       ),
                     ),

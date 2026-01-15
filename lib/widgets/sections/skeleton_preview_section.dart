@@ -59,6 +59,21 @@ class SkeletonPreviewSection extends StatelessWidget {
                                 imgPath,
                                 width: 60,
                                 height: 60,
+                                fit: BoxFit.cover,
+                                errorBuilder: (context, error, stackTrace) {
+                                  return Container(
+                                    width: 60,
+                                    height: 60,
+                                    decoration: BoxDecoration(
+                                      color: Colors.grey.shade300,
+                                      borderRadius: BorderRadius.circular(12),
+                                    ),
+                                    child: Icon(
+                                      Icons.broken_image,
+                                      color: Colors.grey.shade600,
+                                    ),
+                                  );
+                                },
                               ),
                             ),
                             title: Text('Item ${index + 1}'),

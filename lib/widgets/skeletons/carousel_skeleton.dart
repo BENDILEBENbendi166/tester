@@ -15,7 +15,7 @@ class CarouselSkeleton extends StatelessWidget {
           (index) => Container(
             margin: const EdgeInsets.symmetric(horizontal: 8),
             decoration: BoxDecoration(
-              color: Colors.grey[300],
+              color: Colors.grey.shade300,
               borderRadius: BorderRadius.circular(20),
               boxShadow: [
                 BoxShadow(
