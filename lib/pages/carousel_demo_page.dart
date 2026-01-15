@@ -29,10 +29,7 @@ class _CarouselDemoPageState extends State<CarouselDemoPage> {
         backgroundColor: Theme.of(context).colorScheme.secondary,
         foregroundColor: Theme.of(context).colorScheme.onSecondary,
         ),
-<<<<<<< HEAD
       
-=======
->>>>>>> copilot/add-carousel-demo-feature
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -334,7 +331,7 @@ class _CarouselDemoPageState extends State<CarouselDemoPage> {
                 ],
               ),
             ),
-          ],  
+          ]
         ),
       ),
     ),);
