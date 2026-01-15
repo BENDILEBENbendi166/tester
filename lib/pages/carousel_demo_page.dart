@@ -28,36 +28,38 @@ class _CarouselDemoPageState extends State<CarouselDemoPage> {
         elevation: 0,
         backgroundColor: Theme.of(context).colorScheme.secondary,
         foregroundColor: Theme.of(context).colorScheme.onSecondary,
-      ),
+        ),
+      
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              Theme.of(context).colorScheme.secondary.withOpacity(0.05),
-              Theme.of(context).colorScheme.surface,
-            ],
+                Theme.of(context).colorScheme.secondary.withOpacity(0.05),
+                Theme.of(context).colorScheme.surface,
+            ]
           ),
         ),
-        child: Column(
-          children: [
-            // Controls Section
-            Container(
-              margin: const EdgeInsets.all(16),
-              padding: const EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.surface,
-                borderRadius: BorderRadius.circular(16),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.05),
-                    blurRadius: 10,
-                    offset: const Offset(0, 4),
-                  ),
-                ],
-              ),
-              child: Column(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              // Controls Section
+              Container(
+                margin: const EdgeInsets.all(16),
+                padding: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.surface,
+                  borderRadius: BorderRadius.circular(16),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.05),
+                      blurRadius: 10,
+                      offset: const Offset(0, 4),
+                    ),
+                  ],
+                ),
+                child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
@@ -133,22 +135,21 @@ class _CarouselDemoPageState extends State<CarouselDemoPage> {
               ),
             ),
             // Carousel Section
-            Expanded(
-              child: Container(
-                margin: const EdgeInsets.symmetric(horizontal: 16),
-                padding: const EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.surface,
-                  borderRadius: BorderRadius.circular(16),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.05),
-                      blurRadius: 10,
-                      offset: const Offset(0, 4),
-                    ),
-                  ],
-                ),
-                child: Column(
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 16),
+              padding: const EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.surface,
+                borderRadius: BorderRadius.circular(16),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.05),
+                    blurRadius: 10,
+                    offset: const Offset(0, 4),
+                  ),
+                ],
+              ),
+              child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
@@ -158,10 +159,11 @@ class _CarouselDemoPageState extends State<CarouselDemoPage> {
                       ),
                     ),
                     const SizedBox(height: 16),
-                    Expanded(
-                      child: _loading
-                          ? const CarouselSkeleton()
-                          : PageView.builder(
+                    _loading
+                        ? const CarouselSkeleton()
+                        : SizedBox(
+                            height: 250, // Set a fixed height for the carousel
+                            child: PageView.builder(
                               controller: _controller,
                               itemCount: _itemCount,
                               itemBuilder: (context, index) {
@@ -223,11 +225,11 @@ class _CarouselDemoPageState extends State<CarouselDemoPage> {
                                 );
                               },
                             ),
-                    ),
+                          ),
                   ],
                 ),
               ),
-            ),
+            ],
             // Code Section
             Container(
               margin: const EdgeInsets.all(16),
@@ -329,7 +331,7 @@ class _CarouselDemoPageState extends State<CarouselDemoPage> {
                 ],
               ),
             ),
-          ],
+          ],  
         ),
       ),
     );
