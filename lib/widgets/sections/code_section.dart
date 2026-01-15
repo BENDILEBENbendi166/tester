@@ -80,7 +80,7 @@ class CodeSection extends StatelessWidget {
                   if (context.mounted) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(
-                        content: Row(
+                        content: const Row(
                           children: [
                             Icon(Icons.check_circle, color: Colors.white),
                             SizedBox(width: 8),
@@ -98,7 +98,7 @@ class CodeSection extends StatelessWidget {
                   if (context.mounted) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(
-                        content: Row(
+                        content: const Row(
                           children: [
                             Icon(Icons.error, color: Colors.white),
                             SizedBox(width: 8),
