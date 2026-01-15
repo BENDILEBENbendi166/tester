@@ -57,17 +57,21 @@ class _SkeletonDemoPageState extends State<SkeletonDemoPage> {
           builder: (context, constraints) {
             return SingleChildScrollView(
               child: ConstrainedBox(
-                constraints: BoxConstraints(
-                  minHeight: constraints.maxHeight,
-                ),
+                constraints: BoxConstraints(minHeight: constraints.maxHeight),
                 child: IntrinsicHeight(
                   child: Column(
                     children: [
                       ControlsSection(
                         loading: _loading,
-                        onLoadingChanged: (val) => setState(() => _loading = val),
+                        onLoadingChanged: (val) =>
+                            WidgetsBinding.instance.addPostFrameCallback(
+                              (_) => setState(() => _loading = val),
+                            ),
                         itemCount: _itemCount,
-                        onItemCountChanged: (val) => setState(() => _itemCount = val),
+                        onItemCountChanged: (val) =>
+                            WidgetsBinding.instance.addPostFrameCallback(
+                              (_) => setState(() => _itemCount = val),
+                            ),
                         primaryColor: primaryColor,
                       ),
                       Expanded(

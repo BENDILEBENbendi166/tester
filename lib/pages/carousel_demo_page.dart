@@ -61,28 +61,44 @@ class _CarouselDemoPageState extends State<CarouselDemoPage> {
           ),
         ),
         child: SingleChildScrollView(
-          child: Column(
-            children: [
-              ControlsSection(
-                loading: _loading,
-                onLoadingChanged: (val) => setState(() => _loading = val),
-                itemCount: _itemCount,
-                onItemCountChanged: (val) => setState(() => _itemCount = val),
-                primaryColor: secondaryColor,
-                loadingIcon: Icons.hourglass_empty,
-                itemCountIcon: Icons.view_carousel,
-              ),
-              CarouselPreviewSection(
-                loading: _loading,
-                itemCount: _itemCount,
-                imagePaths: _imagePaths,
-                controller: _controller,
-              ),
-              CodeSection(
-                codeSnippet: _codeSnippet,
-                primaryColor: secondaryColor,
-              ),
-            ],
+          child: IntrinsicHeight(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ControlsSection(
+                  loading: _loading,
+                  onLoadingChanged: (val) =>
+                      WidgetsBinding.instance.addPostFrameCallback(
+                        (_) => setState(() => _loading = val),
+                      ),
+                  itemCount: _itemCount,
+                  onItemCountChanged: (val) =>
+                      WidgetsBinding.instance.addPostFrameCallback(
+                        (_) => setState(() => _itemCount = val),
+                      ),
+                  primaryColor: secondaryColor,
+                  loadingIcon: Icons.hourglass_empty,
+                  itemCountIcon: Icons.view_carousel,
+                ),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+                  child: Text(
+                    'Carousel Preview',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                  ),
+                ),
+                CarouselPreviewSection(
+                  loading: _loading,
+                  itemCount: _itemCount,
+                  imagePaths: _imagePaths,
+                  controller: _controller,
+                ),
+                CodeSection(
+                  codeSnippet: _codeSnippet,
+                  primaryColor: secondaryColor,
+                ),
+              ],
+            ),
           ),
         ),
       ),

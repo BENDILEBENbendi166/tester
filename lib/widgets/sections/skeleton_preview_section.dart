@@ -35,12 +35,13 @@ class SkeletonPreviewSection extends StatelessWidget {
           children: [
             Text(
               'Preview',
-              style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+              style: Theme.of(
+                context,
+              ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 16),
-            Expanded(
+            SizedBox(
+              height: 300,
               child: loading
                   ? NowPlayingSkeleton(itemCount: itemCount)
                   : ListView.builder(
@@ -58,26 +59,9 @@ class SkeletonPreviewSection extends StatelessWidget {
                                 imgPath,
                                 width: 60,
                                 height: 60,
-                                fit: BoxFit.cover,
                               ),
                             ),
-                            title: Text(
-                              'Loaded item #${index + 1}',
-                              style: const TextStyle(fontWeight: FontWeight.w600),
-                            ),
-                            subtitle: Padding(
-                              padding: const EdgeInsets.only(top: 4),
-                              child: Text(
-                                'This content is now loaded',
-                                style: TextStyle(
-                                  color: Theme.of(context).colorScheme.onSurfaceVariant,
-                                ),
-                              ),
-                            ),
-                            trailing: Icon(
-                              Icons.chevron_right,
-                              color: Theme.of(context).colorScheme.primary,
-                            ),
+                            title: Text('Item ${index + 1}'),
                           ),
                         );
                       },
