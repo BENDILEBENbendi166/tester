@@ -1,4 +1,3 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
@@ -9,10 +8,12 @@ class CarouselSkeleton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Skeletonizer(
       enabled: true,
-      child: CarouselSlider(
-        items: List.generate(
-          3,
-          (index) => Container(
+      child: SizedBox(
+        height: 200,
+        child: PageView.builder(
+          itemCount: 3,
+          controller: PageController(viewportFraction: 0.85),
+          itemBuilder: (context, index) => Container(
             margin: const EdgeInsets.symmetric(horizontal: 8),
             decoration: BoxDecoration(
               color: Colors.grey.shade300,
@@ -26,16 +27,6 @@ class CarouselSkeleton extends StatelessWidget {
               ],
             ),
           ),
-        ),
-        options: CarouselOptions(
-          height: double.infinity,
-          autoPlay: true,
-          autoPlayCurve: Curves.fastOutSlowIn,
-          autoPlayAnimationDuration: const Duration(milliseconds: 800),
-          enableInfiniteScroll: true,
-          pageSnapping: true,
-          enlargeCenterPage: true,
-          viewportFraction: 0.85,
         ),
       ),
     );

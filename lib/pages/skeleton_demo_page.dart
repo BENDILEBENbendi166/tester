@@ -63,18 +63,17 @@ class _SkeletonDemoPageState extends State<SkeletonDemoPage> {
                     children: [
                       ControlsSection(
                         loading: _loading,
-                        onLoadingChanged: (val) => setState(() => _loading = val),
+                        onLoadingChanged: (val) =>
+                            setState(() => _loading = val),
                         itemCount: _itemCount,
                         onItemCountChanged: (val) =>
                             setState(() => _itemCount = val),
                         primaryColor: primaryColor,
                       ),
-                      Expanded(
-                        child: SkeletonPreviewSection(
-                          loading: _loading,
-                          itemCount: _itemCount,
-                          imagePaths: _imagePaths,
-                        ),
+                      SkeletonPreviewSection(
+                        loading: _loading,
+                        itemCount: _itemCount,
+                        imagePaths: _imagePaths,
                       ),
                       CodeSection(
                         codeSnippet: _codeSnippet,
