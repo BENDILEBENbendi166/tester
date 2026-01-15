@@ -24,6 +24,8 @@ class ControlsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final containerColor = primaryColor.withOpacity(0.2);
+
     return Container(
       margin: const EdgeInsets.all(16),
       padding: const EdgeInsets.all(20),
@@ -89,7 +91,7 @@ class ControlsSection extends StatelessWidget {
                   vertical: 6,
                 ),
                 decoration: BoxDecoration(
-                  color: primaryColor.withOpacity(0.2),
+                  color: containerColor,
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Text(
