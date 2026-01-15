@@ -47,9 +47,7 @@ class HomePage extends StatelessWidget {
                           Theme.of(context).colorScheme.primaryContainer,
                         ],
                       ),
-                      onTap: () => WidgetsBinding.instance.addPostFrameCallback(
-                        (_) => Navigator.pushNamed(context, '/skeleton'),
-                      ),
+                      onTap: () => Navigator.pushNamed(context, '/skeleton'),
                     ),
                     const SizedBox(height: 16),
                     DemoCard(
@@ -63,9 +61,7 @@ class HomePage extends StatelessWidget {
                           Theme.of(context).colorScheme.secondaryContainer,
                         ],
                       ),
-                      onTap: () => WidgetsBinding.instance.addPostFrameCallback(
-                        (_) => Navigator.pushNamed(context, '/carousel'),
-                      ),
+                      onTap: () => Navigator.pushNamed(context, '/carousel'),
                     ),
                   ],
                 ),

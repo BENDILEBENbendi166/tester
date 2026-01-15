@@ -79,8 +79,8 @@ class CodeSection extends StatelessWidget {
                   await Clipboard.setData(ClipboardData(text: codeSnippet));
                   if (context.mounted) {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: const Row(
+                      const SnackBar(
+                        content: Row(
                           children: [
                             Icon(Icons.check_circle, color: Colors.white),
                             SizedBox(width: 8),
@@ -89,7 +89,7 @@ class CodeSection extends StatelessWidget {
                         ),
                         behavior: SnackBarBehavior.floating,
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
                         ),
                       ),
                     );
@@ -97,8 +97,8 @@ class CodeSection extends StatelessWidget {
                 } catch (e) {
                   if (context.mounted) {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: const Row(
+                      const SnackBar(
+                        content: Row(
                           children: [
                             Icon(Icons.error, color: Colors.white),
                             SizedBox(width: 8),
@@ -108,7 +108,7 @@ class CodeSection extends StatelessWidget {
                         behavior: SnackBarBehavior.floating,
                         backgroundColor: Colors.red,
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
                         ),
                       ),
                     );

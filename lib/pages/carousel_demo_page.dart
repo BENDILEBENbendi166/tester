@@ -67,15 +67,9 @@ class _CarouselDemoPageState extends State<CarouselDemoPage> {
               children: [
                 ControlsSection(
                   loading: _loading,
-                  onLoadingChanged: (val) =>
-                      WidgetsBinding.instance.addPostFrameCallback(
-                        (_) => setState(() => _loading = val),
-                      ),
+                  onLoadingChanged: (val) => setState(() => _loading = val),
                   itemCount: _itemCount,
-                  onItemCountChanged: (val) =>
-                      WidgetsBinding.instance.addPostFrameCallback(
-                        (_) => setState(() => _itemCount = val),
-                      ),
+                  onItemCountChanged: (val) => setState(() => _itemCount = val),
                   primaryColor: secondaryColor,
                   loadingIcon: Icons.hourglass_empty,
                   itemCountIcon: Icons.view_carousel,

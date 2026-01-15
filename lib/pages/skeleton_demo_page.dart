@@ -63,15 +63,10 @@ class _SkeletonDemoPageState extends State<SkeletonDemoPage> {
                     children: [
                       ControlsSection(
                         loading: _loading,
-                        onLoadingChanged: (val) =>
-                            WidgetsBinding.instance.addPostFrameCallback(
-                              (_) => setState(() => _loading = val),
-                            ),
+                        onLoadingChanged: (val) => setState(() => _loading = val),
                         itemCount: _itemCount,
                         onItemCountChanged: (val) =>
-                            WidgetsBinding.instance.addPostFrameCallback(
-                              (_) => setState(() => _itemCount = val),
-                            ),
+                            setState(() => _itemCount = val),
                         primaryColor: primaryColor,
                       ),
                       Expanded(
