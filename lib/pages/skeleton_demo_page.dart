@@ -53,25 +53,40 @@ class _SkeletonDemoPageState extends State<SkeletonDemoPage> {
             ],
           ),
         ),
-        child: Column(
-          children: [
-            ControlsSection(
-              loading: _loading,
-              onLoadingChanged: (val) => setState(() => _loading = val),
-              itemCount: _itemCount,
-              onItemCountChanged: (val) => setState(() => _itemCount = val),
-              primaryColor: primaryColor,
-            ),
-            SkeletonPreviewSection(
-              loading: _loading,
-              itemCount: _itemCount,
-              imagePaths: _imagePaths,
-            ),
-            CodeSection(
-              codeSnippet: _codeSnippet,
-              primaryColor: primaryColor,
-            ),
-          ],
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            return SingleChildScrollView(
+              child: ConstrainedBox(
+                constraints: BoxConstraints(
+                  minHeight: constraints.maxHeight,
+                ),
+                child: IntrinsicHeight(
+                  child: Column(
+                    children: [
+                      ControlsSection(
+                        loading: _loading,
+                        onLoadingChanged: (val) => setState(() => _loading = val),
+                        itemCount: _itemCount,
+                        onItemCountChanged: (val) => setState(() => _itemCount = val),
+                        primaryColor: primaryColor,
+                      ),
+                      Expanded(
+                        child: SkeletonPreviewSection(
+                          loading: _loading,
+                          itemCount: _itemCount,
+                          imagePaths: _imagePaths,
+                        ),
+                      ),
+                      CodeSection(
+                        codeSnippet: _codeSnippet,
+                        primaryColor: primaryColor,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            );
+          },
         ),
       ),
     );
