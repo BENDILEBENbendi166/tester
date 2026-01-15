@@ -8,27 +8,34 @@ class CarouselSkeleton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Skeletonizer(
+      enabled: true,
       child: CarouselSlider(
         items: List.generate(
-          6,
+          3,
           (index) => Container(
             margin: const EdgeInsets.symmetric(horizontal: 8),
             decoration: BoxDecoration(
               color: Colors.grey[300],
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(20),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.1),
+                  blurRadius: 8,
+                  offset: const Offset(0, 4),
+                ),
+              ],
             ),
-            height: 200,
           ),
         ),
         options: CarouselOptions(
-          height: 300,
+          height: double.infinity,
           autoPlay: true,
           autoPlayCurve: Curves.fastOutSlowIn,
-          autoPlayAnimationDuration: const Duration(seconds: 1),
+          autoPlayAnimationDuration: const Duration(milliseconds: 800),
           enableInfiniteScroll: true,
           pageSnapping: true,
           enlargeCenterPage: true,
-          viewportFraction: 0.8,
+          viewportFraction: 0.85,
         ),
       ),
     );
