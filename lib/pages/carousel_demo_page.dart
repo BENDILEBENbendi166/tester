@@ -33,6 +33,12 @@ class _CarouselDemoPageState extends State<CarouselDemoPage> {
 )""";
 
   @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final secondaryColor = Theme.of(context).colorScheme.secondary;
 
